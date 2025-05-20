@@ -1,4 +1,4 @@
-name: Test index.html and Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -6,37 +6,37 @@ on:
       - main
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read      # нужно для actions/checkout
+  pages: write        # нужно для actions/deploy-pages
+  id-token: write     # нужно для actions/configure-pages
 
 jobs:
-  check-index-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout main branch
-        uses: actions/checkout@v3
-        with:
-          ref: main
 
-      - name: Check if index.html exists
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for index.html
         id: check_file
         run: |
-          if [ -f index.html ]; then
-            echo "file_exists=true" >> $GITHUB_OUTPUT
+          if [ -f "index.html" ]; then
+            echo "found=true" >> $GITHUB_OUTPUT
           else
-            echo "file_exists=false" >> $GITHUB_OUTPUT
+            echo "found=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Checkout main branch
-        if: steps.check_file.outputs.file_exists == 'true'
-        uses: actions/checkout@v3
-        with:
-          ref: main
+      - name: Setup Pages
+        if: steps.check_file.outputs.found == 'true'
+        uses: actions/configure-pages@v5
 
-      # Мерджа нет, просто деплой, если надо
-      - name: Deploy to GitHub Pages
-        if: steps.check_file.outputs.file_exists == 'true'
-        uses: actions/deploy-pages@v4
+      - name: Upload artifact
+        if: steps.check_file.outputs.found == 'true'
+        uses: actions/upload-pages-artifact@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          path: .
+
+      - name: Deploy to GitHub Pages
+        if: steps.check_file.outputs.found == 'true'
+        uses: actions/deploy-pages@v4
