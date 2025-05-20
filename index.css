@@ -29,11 +29,11 @@ body {
     transition: all 0.3s ease; /* плавное изменение стиля */
 }
 .menu:hover {
-    border: 3px solid #1b7b6e; /* бирюзовая рамка */ background-color: #18FFE0; /* бирюзовый цвет фона */
+    border: 3px solid #114942; /* бирюзовая рамка */ background-color: #18FFE0; /* бирюзовый цвет фона */
 }
 .menu-overlay {
     display: none; /* Скрыто по умолчанию */
-    background-color: #703e13; /* Фон меню */
+    background-color: #5a554b; /* Фон меню */
     width: 1170px; /* Ширина, как у .container */
     display: flex; /* Включаем Flexbox */
     align-items: center; /* Выравнивание элементов по центру по горизонтали */

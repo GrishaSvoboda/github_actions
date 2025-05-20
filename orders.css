@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'Faster One', sans-serif;
     color: #000;
-    background-color:#EBC76C;
+    background-color:#a19985;
 }/*----------------------------------------------------------------------------------------------*/
 .logo {
     margin-top: 20px;
@@ -34,7 +34,7 @@ body {
 /*----------------------------------------------------------------------------------------------*/
 .menu-overlay {
     display: none; /* Скрыто по умолчанию */
-    background-color: #703e13; /* Фон меню */
+    background-color: #5a554b; /* Фон меню */
     width: 1170px; /* Ширина, как у .container */
     display: flex; /* Включаем Flexbox */
     align-items: center; /* Выравнивание элементов по центру по горизонтали */
@@ -70,7 +70,7 @@ body {
     color: black;
 }.back-link a:hover {
     text-decoration: underline; /* Подчеркивание при наведении курсора */
-    color: #703e13; /* Цвет при наведении */
+    color: #114942; /* Цвет при наведении */
 }
 
 
@@ -93,11 +93,11 @@ th {
     color: #ffffff;
 }
 td {
-    background: #18FFE0;
+    background: #114942;
     padding: 10px;
     color: #000;
 }
-.confirm-btn, .delete-btn {
+.delete-btn {
     padding: 5px 50px;
     text-decoration: none;
     text-transform: uppercase;
@@ -105,14 +105,7 @@ td {
     color: black;
     border-radius: 5px;
     border: 2px solid black;
-    background: #18FFE0;
-}
-.confirm-btn:hover {
-    background: black;
-    color: #18FFE0;
-}
-.confirm-btn:active {
-    transform: translateY(2px);
+    background: #114942;
 }
 .delete-btn:hover {
     background: black;
