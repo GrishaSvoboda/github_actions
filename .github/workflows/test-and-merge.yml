@@ -1,0 +1,37 @@
+name: Test index.html and Deploy
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  check-index-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop branch
+        uses: actions/checkout@v3
+        with:
+          ref: develop
+
+      - name: Check if index.html exists
+        id: check_file
+        run: |
+          if [ -f index.html ]; then
+            echo "file_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "file_exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Checkout main branch
+        if: steps.check_file.outputs.file_exists == 'true'
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      # Мерджа нет, просто деплой, если надо
+      - name: Deploy to GitHub Pages
+        if: steps.check_file.outputs.file_exists == 'true'
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
