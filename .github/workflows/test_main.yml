@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write  #необходимо для деплоя GitHub Pages
+  id-token: write  # необходимо для деплоя GitHub Pages
 
 jobs:
   check-index-and-deploy:
