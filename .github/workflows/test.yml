@@ -6,13 +6,15 @@ on:
       - main
 
 permissions:
-  contents: read      # нужно для actions/checkout
-  pages: write        # нужно для actions/deploy-pages
-  id-token: write     # нужно для actions/configure-pages
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages 
 
     steps:
       - name: Checkout repository
