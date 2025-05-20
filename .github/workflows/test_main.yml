@@ -1,28 +1,24 @@
-name: Test index.html and Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
+permissions:
+  id-token: write
+  contents: read
+  pages: write
 
 jobs:
-  check-index-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main branch
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Check if index.html exists
-        id: check_file
+      - name: Build your site
         run: |
-          if [ -f index.html ]; then
-            echo "file_exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "file_exists=false" >> $GITHUB_OUTPUT
-          fi
+          # Команды сборки вашего сайта
 
       - name: Deploy to GitHub Pages
-        if: steps.check_file.outputs.file_exists == 'true'
         uses: actions/deploy-pages@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
