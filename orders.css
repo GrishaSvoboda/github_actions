@@ -70,7 +70,7 @@ body {
     color: black;
 }.back-link a:hover {
     text-decoration: underline; /* Подчеркивание при наведении курсора */
-    color: #114942; /* Цвет при наведении */
+    color: #0d6f63; /* Цвет при наведении */
 }
 
 
@@ -93,7 +93,7 @@ th {
     color: #ffffff;
 }
 td {
-    background: #114942;
+    background: #069584;
     padding: 10px;
     color: #000;
 }
@@ -105,11 +105,11 @@ td {
     color: black;
     border-radius: 5px;
     border: 2px solid black;
-    background: #114942;
+    background: #069584;
 }
 .delete-btn:hover {
     background: black;
-    color: #18FFE0;
+    color: #06ccb5;
 }
 .delete-btn:active {
     transform: translateY(2px);

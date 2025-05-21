@@ -5,12 +5,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Обработчик для кнопки меню
     menuButton.addEventListener('click', function(event) {
-        // Переключаем цвет фона для menu_g
-        menuG.style.backgroundColor = menuG.style.backgroundColor === 'rgb(112, 62, 19)' ? '' : '#703e13'; // #B97A41 в RGB
-        // Переключаем видимость для menu-overlay
-        menuOverlay.style.display = menuOverlay.style.display === 'block' ? 'none' : 'block';
-        event.stopPropagation(); // Предотвращаем всплытие события, чтобы клик по кнопке не вызывал закрытие меню
-    });
+    // Устанавливаем фиксированный цвет фона
+    menuG.style.backgroundColor = '#a19985';
+
+    // Переключаем видимость для menu-overlay
+    menuOverlay.style.display = menuOverlay.style.display === 'block' ? 'none' : 'block';
+
+    event.stopPropagation(); // Предотвращаем всплытие события
+});
 
     // Обработчик для всего документа
     document.addEventListener('click', function(event) {

@@ -150,7 +150,7 @@ section#info strong {
     margin: 0 auto;
     font-family: Arial, sans-serif;
 }
-.card {
+.card, .card2 {
     width: 550px;
     min-height: 350px;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
